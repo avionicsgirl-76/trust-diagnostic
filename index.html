@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What's Actually Holding Your Group Together? — The Structural Trust Diagnostic</title>
+<meta name="description" content="A 12-question self-assessment of whether your group runs on structural trust or emotional trust. From the Grey Cell Protocols.">
+<style>
+  :root {
+    --bg: #14161a;
+    --panel: #1d2126;
+    --panel-edge: #2a2f36;
+    --text: #e8e6e1;
+    --muted: #9aa0a8;
+    --accent: #b8956a;
+    --structural: #7da87b;
+    --mixed: #c9a86a;
+    --emotional: #c47a6a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 40px 20px 80px; }
+  header { margin-bottom: 8px; }
+  .kicker {
+    font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 14px;
+  }
+  h1 { font-size: 30px; line-height: 1.25; font-weight: 650; margin-bottom: 10px; }
+  .subtitle { color: var(--muted); font-size: 16px; margin-bottom: 28px; }
+  .card {
+    background: var(--panel); border: 1px solid var(--panel-edge);
+    border-radius: 10px; padding: 28px; margin-bottom: 20px;
+  }
+  .card p + p { margin-top: 14px; }
+  .btn {
+    display: inline-block; background: var(--accent); color: #14161a;
+    border: none; border-radius: 8px; padding: 13px 26px;
+    font-size: 16px; font-weight: 650; cursor: pointer; text-decoration: none;
+    margin-top: 22px;
+  }
+  .btn:hover { filter: brightness(1.08); }
+  .meta { color: var(--muted); font-size: 14px; margin-top: 16px; }
+  .progress { color: var(--muted); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 18px; }
+  .qtext { font-size: 21px; font-weight: 600; line-height: 1.4; margin-bottom: 24px; }
+  .answer {
+    display: block; width: 100%; text-align: left;
+    background: var(--panel); color: var(--text);
+    border: 1px solid var(--panel-edge); border-radius: 8px;
+    padding: 16px 18px; font-size: 16px; line-height: 1.5;
+    cursor: pointer; margin-bottom: 12px; font-family: inherit;
+  }
+  .answer:hover { border-color: var(--accent); }
+  .back {
+    background: none; border: none; color: var(--muted); font-size: 14px;
+    cursor: pointer; padding: 6px 0; margin-top: 10px; font-family: inherit;
+  }
+  .back:hover { color: var(--text); }
+  .headline { font-size: 24px; font-weight: 650; line-height: 1.35; margin-bottom: 14px; }
+  .band-copy { font-size: 17px; color: var(--text); }
+  .domain-row {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 12px; padding: 13px 0; border-bottom: 1px solid var(--panel-edge);
+  }
+  .domain-row:last-child { border-bottom: none; }
+  .domain-name { font-size: 16px; font-weight: 600; }
+  .tag { font-size: 13px; font-weight: 650; letter-spacing: 0.05em; text-transform: uppercase; white-space: nowrap; }
+  .tag.structural { color: var(--structural); }
+  .tag.mixed { color: var(--mixed); }
+  .tag.emotional { color: var(--emotional); }
+  .fm { border-left: 3px solid var(--emotional); padding-left: 16px; margin-top: 20px; }
+  .fm h3 { font-size: 16px; margin-bottom: 6px; }
+  .fm p { font-size: 15px; color: var(--muted); }
+  .fm p strong { color: var(--text); }
+  .guardrail {
+    border: 1px solid var(--panel-edge); border-radius: 10px;
+    padding: 22px 24px; margin: 26px 0; font-size: 15px; color: var(--muted);
+  }
+  .guardrail h3 { color: var(--text); font-size: 15px; margin-bottom: 8px; }
+  .cta { text-align: left; }
+  .cta p { font-size: 16px; }
+  .small { font-size: 14px; color: var(--muted); }
+  .small a { color: var(--accent); }
+  footer { color: var(--muted); font-size: 13px; margin-top: 40px; border-top: 1px solid var(--panel-edge); padding-top: 18px; }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">The Structural Trust Diagnostic &middot; Grey Cell Protocols</div>
+  </header>
+
+  <!-- INTRO -->
+  <section id="intro">
+    <h1>What's Actually Holding Your Group Together?</h1>
+    <p class="subtitle">A twelve-question self-assessment of whether your group runs on structure — or on affection, familiarity, and luck.</p>
+    <div class="card">
+      <p><strong>Before you start:</strong> pick one real group you belong to — a team, an organization, a church, a crew, a company — and hold that one group in mind for every question.</p>
+      <p>Answer for how the group <em>actually works</em>, not how it's supposed to work. Nobody sees your answers; they never leave this page.</p>
+      <p class="meta">12 questions &middot; about 3 minutes &middot; no email required</p>
+      <button class="btn" onclick="startQuiz()">Start</button>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="quiz" class="hidden">
+    <div class="progress" id="progress"></div>
+    <div class="qtext" id="qtext"></div>
+    <div id="answers"></div>
+    <button class="back" id="backbtn" onclick="goBack()">&larr; Previous question</button>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results" class="hidden">
+    <div class="card">
+      <div class="headline" id="res-headline"></div>
+      <p class="band-copy" id="res-band"></p>
+    </div>
+    <div class="card">
+      <div id="res-domains"></div>
+    </div>
+    <div id="res-failures"></div>
+    <div class="guardrail">
+      <h3>What this does and doesn't tell you</h3>
+      <p>This is a self-report instrument. It measures how your group's trust is <em>built</em>, not whether anyone in it is trustworthy. A weak domain does not mean misconduct is occurring or that anyone intends harm — most structural weakness is drift, not attack. What it does mean: in that domain, if something went wrong, your group would find out late or not at all. Structural trust is not suspicion of everyone; it's the design that makes appropriate behavior more likely, misconduct more detectable, and failure more recoverable — so that your relationships don't have to do a job they were never built for.</p>
+    </div>
+    <div class="card cta">
+      <p><strong>The fix for every weak domain above is the same discipline:</strong> installing structural trust without turning your group cold — the components, the sequence, and how to do it without triggering the exact defensiveness you're worried about. That's the Structural Trust module of Grey Cell Protocols 101, inside the paid membership of The Shepard Scale, along with the other three courses and the full doctrine.</p>
+      <a class="btn" href="https://shepardscale.substack.com/subscribe" target="_blank" rel="noopener">Become a member</a>
+      <p class="small" style="margin-top:18px;">Not ready for that? <a href="https://shepardscale.substack.com/" target="_blank" rel="noopener">Join the free list</a> — one serious piece a week on how groups hold together, and how they fail.</p>
+    </div>
+    <p class="small"><a href="#" onclick="retake(); return false;">Retake the diagnostic</a> — or run it again for a different group.</p>
+    <footer>
+      &copy; Kit Perez &middot; Grey Cell Protocols &middot; <a style="color:var(--muted);" href="https://shepardscale.substack.com/" target="_blank" rel="noopener">The Shepard Scale</a><br>
+      Your answers are scored on this page and are never transmitted or stored.
+    </footer>
+  </section>
+
+</div>
+
+<script>
+// S = 2, M = 1, E = 0. Tags are internal; answers shown in authored order.
+const QUESTIONS = [
+  { domain: "A", text: "Someone in your group needs access to something sensitive. Maybe it's the money, personnel data, keys, the passwords, etc. How does that usually get decided?",
+    answers: [
+      { t: "Leadership makes the call.", k: "E" },
+      { t: "It comes with the role. When the role ends, the access ends.", k: "S" },
+      { t: "People pick things up over time. The longer you've been in, the more you know.", k: "M" }
+    ]},
+  { domain: "A", text: "If someone asked you to list everything sensitive your group holds and exactly who can touch each thing, could you do it?",
+    answers: [
+      { t: "Mostly, off the top of my head. There might be a surprise or two.", k: "M" },
+      { t: "Not really; it's spread across people and history. But we all basically know who handles what.", k: "E" },
+      { t: "Yes. It's written down, and it's current.", k: "S" }
+    ]},
+  { domain: "B", text: "Who can move the group's money or commit its resources?",
+    answers: [
+      { t: "Nothing significant moves without a second person.", k: "S" },
+      { t: "One person handles all of that. We like keeping it simple.", k: "E" },
+      { t: "Technically one person could if they wanted to, but they never would.", k: "M" }
+    ]},
+  { domain: "B", text: "When did your group last double-check anything, such as in an audit or a re-vetting of someone?",
+    answers: [
+      { t: "We vet people when they come in, so that we can trust them.", k: "E" },
+      { t: "When something feels wrong, we look into it right away.", k: "M" },
+      { t: "We do regular checks on a schedule. Everyone gets looked at, but nobody takes it personally.", k: "S" }
+    ]},
+  { domain: "C", text: "Think about the last big decision your group made. If someone who wasn't there asked how you arrived at it, what would you say?",
+    answers: [
+      { t: "The people who were in the room could walk them through it.", k: "M" },
+      { t: "Enough is written down that they could piece it together themselves: what we knew, what else we considered, why we decided what we did.", k: "S" },
+      { t: "It came together in conversation. The decision was sound, but there isn't much of a trail.", k: "E" }
+    ]},
+  { domain: "C", text: "After something goes wrong, what do you do?",
+    answers: [
+      { t: "We figure out who dropped the ball and deal with it directly.", k: "E" },
+      { t: "We trace where the process broke down so it catches the next one. The who matters less than the how.", k: "S" },
+      { t: "It depends on who was involved.", k: "M" }
+    ]},
+  { domain: "D", text: "A newer member thinks the leader is getting something important wrong. What actually happens if they say so?",
+    answers: [
+      { t: "There's a known way to raise it, people have used it, and the group has changed course because of it.", k: "S" },
+      { t: "There's a way to raise it in principle. How it actually goes sometimes depends on the mood and on who's asking.", k: "M" },
+      { t: "In practice, newer folks don't. We prefer to have the newer members observe before they start trying to change things.", k: "E" }
+    ]},
+  { domain: "D", text: "What would your group consider disloyal?",
+    answers: [
+      { t: "Running the group down by second-guessing decisions, complaining, stirring things up, etc.", k: "E" },
+      { t: "It's hard to say. It would depend on who they were and what happened.", k: "M" },
+      { t: "Concealing a problem from the group is the only real disloyalty.", k: "S" }
+    ]},
+  { domain: "E", text: "How did the last person get brought into your group?",
+    answers: [
+      { t: "A trusted member of the group referred them or vouched for them.", k: "M" },
+      { t: "We ran a background check and sat down with them for a real interview.", k: "E" },
+      { t: "Everyone goes through a specific, time-based process regardless of their experience, whether they were vouched for, or who they are.", k: "S" }
+    ]},
+  { domain: "E", text: "If someone needed to be removed from your group, what would happen?",
+    answers: [
+      { t: "There's a process, and everyone knows what it is.", k: "S" },
+      { t: "It rarely comes to that. People who don't fit tend to drift out on their own before we'd ever have to remove them.", k: "E" },
+      { t: "We've removed people before, but we don't really have a process for it.", k: "M" }
+    ]},
+  { domain: "F", text: "When you think of the most trusted person on your team, what makes you trust them?",
+    answers: [
+      { t: "They have a proven track record, but even so, we don't give any one person anything critical.", k: "S" },
+      { t: "Nobody has put in more work or sacrificed more for this group. They've earned it ten times over.", k: "M" },
+      { t: "They're the heart of our team and we can't imagine trying to operate without them.", k: "E" }
+    ]},
+  { domain: "F", text: "If that person betrayed the group tomorrow, what in your setup would actually catch it?",
+    answers: [
+      { t: "Someone would notice a discrepancy, sooner or later.", k: "M" },
+      { t: "I can name the specific mechanism that would surface it.", k: "S" },
+      { t: "This person would not do that.", k: "E" }
+    ]}
+];
+
+const DOMAINS = {
+  A: { name: "Access" },
+  B: { name: "Verification" },
+  C: { name: "Reconstructability" },
+  D: { name: "Corrective feedback" },
+  E: { name: "Entry and removal" },
+  F: { name: "The load-bearing person" }
+};
+
+const FAILURE_MODES = {
+  A: "Access that accumulates through familiarity rather than role is consistent with absent information compartmentalization. The practical meaning: the damage from any single person going bad — or being compromised — is uncontained, and nobody currently knows how uncontained.",
+  B: "“We don't check because we trust each other” is the pattern the Grey Cell Protocols call <strong>trust substitution</strong> — emotional trust doing a job that only verification can do. Verification that would “feel insulting” is precisely the verification that's been replaced by affection.",
+  C: "Decisions that can't be reconstructed can't be audited — by you or anyone. This raises the possibility that what your group calls judgment is intuition that nobody can examine, which is invisible right up until it fails.",
+  D: "If criticism reads as disloyalty and newer members stay quiet, your feedback loops are compromised — the pattern the Grey Cell Protocols call degraded <strong>control loop integrity</strong>. The group may be failing right now and structurally unable to hear it. This is the single most consequential weak domain.",
+  E: "Standards that flex for likable people are the front edge of <strong>recruitment boundary drift</strong>. And a group with no removal mechanism has told everyone, including its worst future member, that membership is permanent.",
+  F: "Trust earned through visible effort and sacrifice is what the Grey Cell Protocols call <strong>action currency</strong> — and it is real even when the underlying alignment is not. A person whose standing makes them unexaminable, in a structure that can't catch their failure, is your single point of failure regardless of their character."
+};
+
+const BANDS = [
+  { max: 1, copy: "Structure is doing real work in your group. Your risk now is the reliability illusion — past stability creating unjustified confidence. The weak domain below is where to look." },
+  { max: 3, copy: "Your group is normal — and that's the problem. It's held together by genuine affection in some domains and real structure in others, and it probably can't tell you which is which under pressure. The profile below can." },
+  { max: 6, copy: "What's holding your group together is that everyone likes each other and nothing bad has happened yet. That's not trust — it's liking, plus luck. Here's what that predicts, domain by domain." }
+];
+
+const SCORE = { S: 2, M: 1, E: 0 };
+let current = 0;
+let picks = [];
+
+function show(id) {
+  for (const s of ["intro", "quiz", "results"]) {
+    document.getElementById(s).classList.toggle("hidden", s !== id);
+  }
+  window.scrollTo(0, 0);
+}
+
+function startQuiz() {
+  current = 0;
+  picks = [];
+  renderQuestion();
+  show("quiz");
+}
+
+function renderQuestion() {
+  const q = QUESTIONS[current];
+  document.getElementById("progress").textContent = "Question " + (current + 1) + " of " + QUESTIONS.length;
+  document.getElementById("qtext").textContent = q.text;
+  const box = document.getElementById("answers");
+  box.innerHTML = "";
+  q.answers.forEach((a, i) => {
+    const b = document.createElement("button");
+    b.className = "answer";
+    b.textContent = a.t;
+    b.onclick = () => pick(i);
+    box.appendChild(b);
+  });
+  document.getElementById("backbtn").style.visibility = current === 0 ? "hidden" : "visible";
+}
+
+function pick(i) {
+  picks[current] = i;
+  if (current < QUESTIONS.length - 1) {
+    current++;
+    renderQuestion();
+  } else {
+    renderResults();
+  }
+}
+
+function goBack() {
+  if (current > 0) {
+    current--;
+    renderQuestion();
+  }
+}
+
+function computeDomains() {
+  const totals = {};
+  QUESTIONS.forEach((q, idx) => {
+    const key = q.answers[picks[idx]].k;
+    totals[q.domain] = (totals[q.domain] || 0) + SCORE[key];
+  });
+  const out = {};
+  for (const d in totals) {
+    const pts = totals[d];
+    out[d] = pts >= 3 ? "structural" : (pts === 2 ? "mixed" : "emotional");
+  }
+  return out;
+}
+
+function renderResults() {
+  const classes = computeDomains();
+  const order = ["A", "B", "C", "D", "E", "F"];
+  const emotionalCount = order.filter(d => classes[d] === "emotional").length;
+
+  const n = emotionalCount === 0 ? "none" : String(emotionalCount);
+  document.getElementById("res-headline").textContent =
+    emotionalCount === 0
+      ? "Your group runs on emotional trust in none of the 6 domains."
+      : "Your group runs on emotional trust in " + n + " of 6 domains.";
+  document.getElementById("res-band").textContent = BANDS.find(b => emotionalCount <= b.max).copy;
+
+  const labels = { structural: "Structural", mixed: "Mixed", emotional: "Emotional-trust-dependent" };
+  const rows = document.getElementById("res-domains");
+  rows.innerHTML = "";
+  order.forEach(d => {
+    const row = document.createElement("div");
+    row.className = "domain-row";
+    row.innerHTML = '<span class="domain-name">' + DOMAINS[d].name + '</span>' +
+      '<span class="tag ' + classes[d] + '">' + labels[classes[d]] + '</span>';
+    rows.appendChild(row);
+  });
+
+  const fails = document.getElementById("res-failures");
+  fails.innerHTML = "";
+  const weak = order.filter(d => classes[d] === "emotional");
+  if (weak.length) {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = "<h2 style='font-size:19px;margin-bottom:4px;'>What the weak domains predict</h2>" +
+      weak.map(d =>
+        '<div class="fm"><h3>' + DOMAINS[d].name + '</h3><p>' + FAILURE_MODES[d] + '</p></div>'
+      ).join("");
+    fails.appendChild(card);
+  }
+  show("results");
+}
+
+function retake() {
+  startQuiz();
+}
+</script>
+</body>
+</html>
