@@ -131,12 +131,12 @@
     <div id="res-failures"></div>
     <div class="guardrail">
       <h3>What this does and doesn't tell you</h3>
-      <p>This is a self-report instrument. It measures how your group's trust is <em>built</em>, not whether anyone in it is trustworthy. A weak domain does not mean misconduct is occurring or that anyone intends harm — most structural weakness is drift, not attack. What it does mean: in that domain, if something went wrong, your group would find out late or not at all. Structural trust is not suspicion of everyone; it's the design that makes appropriate behavior more likely, misconduct more detectable, and failure more recoverable — so that your relationships don't have to do a job they were never built for.</p>
+      <p>This is a self-report instrument. It measures how your group's trust is <em>built</em>, not whether anyone in it is trustworthy. A weak domain does not mean misconduct is occurring or that anyone intends harm; structural weakness is usually drift rather than attack. What it does mean: in that domain, if something went wrong, your group would find out late or not at all. Structural trust is the design that makes appropriate behavior more likely, misconduct more detectable, and failure more recoverable so that your relationships don't have to do a job they were never built for.</p>
     </div>
     <div class="card cta">
       <p><strong>The fix for every weak domain above is the same discipline:</strong> installing structural trust without turning your group cold — the components, the sequence, and how to do it without triggering the exact defensiveness you're worried about. That's the Structural Trust module of Grey Cell Protocols 101, inside the paid membership of The Shepard Scale, along with the other three courses and the full doctrine.</p>
       <a class="btn" href="https://shepardscale.substack.com/subscribe" target="_blank" rel="noopener">Become a member</a>
-      <p class="small" style="margin-top:18px;">Not ready for that? <a href="https://shepardscale.substack.com/" target="_blank" rel="noopener">Join the free list</a> — one serious piece a week on how groups hold together, and how they fail.</p>
+      <p class="small" style="margin-top:18px;">Not ready for that? <a href="https://shepardscale.substack.com/subscribe" target="_blank" rel="noopener">Join the free list</a> — one serious piece a week on how groups hold together, and how they fail.</p>
     </div>
     <p class="small"><a href="#" onclick="retake(); return false;">Retake the diagnostic</a> — or run it again for a different group.</p>
     <footer>
@@ -234,18 +234,18 @@ const DOMAINS = {
 };
 
 const FAILURE_MODES = {
-  A: "Access that accumulates through familiarity rather than role is consistent with absent information compartmentalization. The practical meaning: the damage from any single person going bad — or being compromised — is uncontained, and nobody currently knows how uncontained.",
-  B: "“We don't check because we trust each other” is the pattern the Grey Cell Protocols call <strong>trust substitution</strong> — emotional trust doing a job that only verification can do. Verification that would “feel insulting” is precisely the verification that's been replaced by affection.",
-  C: "Decisions that can't be reconstructed can't be audited — by you or anyone. This raises the possibility that what your group calls judgment is intuition that nobody can examine, which is invisible right up until it fails.",
-  D: "If criticism reads as disloyalty and newer members stay quiet, your feedback loops are compromised — the pattern the Grey Cell Protocols call degraded <strong>control loop integrity</strong>. The group may be failing right now and structurally unable to hear it. This is the single most consequential weak domain.",
-  E: "Standards that flex for likable people are the front edge of <strong>recruitment boundary drift</strong>. And a group with no removal mechanism has told everyone, including its worst future member, that membership is permanent.",
-  F: "Visible effort, presence, and sacrifice earn what the Grey Cell Protocols call <strong>action currency</strong> — social capital that manufactures perceived trustworthiness. Action currency is not the same as trustworthiness: the currency is real even when the underlying alignment is not, and challenging a high-action-currency member feels like ingratitude — which is precisely what makes them unexaminable. A person nobody can examine, in a structure that can't catch their failure, is your single point of failure regardless of their character."
+  A: "Access granted by personal judgment or accumulated through history, rather than attached to a role and ending with it, means no one is controlling who knows what and who can touch what. If any single person goes rogue or gets compromised, the damage is uncontained.",
+  B: "“We don't check because we trust each other” is the pattern called <strong>trust substitution</strong>; this is when emotional trust is doing a job that only verification can do. If it “feels insulting” to keep an eye on trusted members, then you will miss when their situation changes, their beliefs change, and their alignment with the mission erodes. Without it, the first sign you get may be the damage itself.",
+  C: "Decisions that can't be reconstructed can't be audited by you or anyone else. This raises the possibility that your group decisions aren't being recorded anywhere, and that also means you cannot explain them to new members as part of your culture. You also won't be able to recognize when your group is drifting from what it claims to believe in.",
+  D: "If criticism reads as disloyalty and newer members are encouraged or expected to stay quiet, your feedback loops are compromised. This is something that degrades your <strong>control loop integrity</strong>, or whether feedback systems correct mistakes or make them worse. The group may be failing right now and structurally unable to hear it. If your group cannot hear that, it cannot fix anything else on this list.",
+  E: "A background check and an interview feel like vetting, but they aren't. Real vetting is a structured process run over time, examining behavior, consistency, and motives, and it doesn't change because someone is vouched for or likable. Standards that are flexible are the front edge of recruitment boundary drift. Meanwhile, a group with no removal mechanism has told everyone that misaligned people won't get ejected. That's a quick way to get your good people to leave.",
+  F: "Visible effort, presence, and sacrifice earn what the Grey Cell Protocols call <strong>action currency</strong>. This is social capital that manufactures perceived trustworthiness. Action currency is not the same as trustworthiness. A person nobody can examine, in a structure that can't catch their failure, is your single point of failure regardless of their character."
 };
 
 const BANDS = [
   { max: 1, copy: "Structure is doing real work in your group. Your risk now is the reliability illusion — past stability creating unjustified confidence. The weak domain below is where to look." },
-  { max: 3, copy: "Your group is normal — and that's the problem. It's held together by genuine affection in some domains and real structure in others, and it probably can't tell you which is which under pressure. The profile below can." },
-  { max: 6, copy: "What's holding your group together is that everyone likes each other and nothing bad has happened yet. That's not trust — it's liking, plus luck. Here's what that predicts, domain by domain." }
+  { max: 3, copy: "Your group is normal, and that's the problem. It's held together by genuine affection in some domains and real structure in others, and it probably can't tell you which is which. The profile below can." },
+  { max: 6, copy: "What's holding your group together is that everyone likes each other and nothing bad has happened yet. You have no warning system. Here's what your profile shows in each domain." }
 ];
 
 const SCORE = { S: 2, M: 1, E: 0 };
